@@ -19,18 +19,19 @@ public class Zadatak1 {
         WebElement search = driver.findElement(By.id("searchKeywordsInput"));
         search.sendKeys("IPhone 13");
         search.sendKeys(Keys.ENTER);
-        driver.findElement(By.xpath("//*[@id=\"adDescription7321776\"]/div/section[2]/div[1]/div[1]/a")).click();
-       // List<WebElement> results = driver.findElements(By.xpath("//*[@id=\"adListContainer\"]"));
-       // WebElement firstResult = results.get(0);
-        Thread.sleep(7000);
-       // firstResult.click();
+        driver.findElement(By.xpath("//*[@id=\"cookieConsentHolder\"]/div/div/div[2]/input")).click();
+        driver.findElement(By.xpath("//*[@id=\"adListContainer\"]/div[contains(@id, 'adDescription')][1]/div/section[2]/div/div[1]/a")).click();
+        Thread.sleep(3000);
         WebElement title = driver.findElement(By.className("oglas-title"));
         if (title.getText().equals("iPhone 13, iPhone 12, iPhone 11 - NOVO!")) {
             System.out.println("Result was the same");
         } else {
             System.out.println("Result was not the same");
         }
+        driver.close();
     }catch (InterruptedException ex){ex.printStackTrace();}
 
     }
+
+
 }
